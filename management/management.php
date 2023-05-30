@@ -85,7 +85,7 @@
                       <td>".$row['transfer_enddate']."</td>
                       <td>
                         <button class='info-btn'>INFO</button>
-                        <button class='sub-btn'>MANAGE</button>
+                        <button class='sub-btn'><a style='text-decoration: none; color: white;' href='./chooseTeam/chooseTeam.php'>MANAGE</a></button>
                         
                       </td>
                     </tr>";

@@ -1,3 +1,24 @@
+<?php
+include_once '../backend/config/config.php';
+
+$sql = "SELECT COUNT(*) as total FROM my_tournaments";
+
+$result = $conn->query($sql);
+
+if ($result === false) {
+    die("Error: " . $conn->error);
+}
+
+$row = $result->fetch_assoc();
+
+$totalRows = $row['total'];
+
+// echo "Total rows: " . $totalRows;
+
+$conn->close();
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +47,7 @@
         <div onclick="handleNavigate('management')" class="body-child">
           <h1 style="font-size: 12px">TOURNAMENT MANAGEMENT</h1>
           <div>
-            <h3>0 tournaments in this section</h3>
+            <h3><?php echo $totalRows; ?> tournaments in this section</h3>
           </div>
         </div>
         <div onclick="handleNavigate('list')" class="body-child">

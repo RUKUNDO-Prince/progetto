@@ -1,7 +1,18 @@
 <?php
-    session_start();
-    $username = $_SESSION['username'];
-    $email = $_SESSION['email'];
+ include_once('../backend/config/config.php');
+  $sql = "SELECT * FROM tournaments";
+  $result = $conn->query($sql);
+
+  // Store the retrieved data in an array
+  $data = [];
+  if ($result->num_rows > 0) {
+      while ($row = $result->fetch_assoc()) {
+          $data[] = $row;
+      }
+  }
+
+  // Close the connection to the source database
+  $conn->close();
 ?>
 
 <!DOCTYPE html>
@@ -23,16 +34,7 @@
         <div class="user_dash">
           <h1>TOURNMENT SECTION</h1>
         </div>
-        <div class="nav">
-          <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li>Welcome </li><?php echo $username; ?>
-            <li>
-              <a href="logout.php"><i class="fas fa-power-off"></i></a>
-            </li>
-          </ul>
-        </div>
+        <?php include_once '../header/header.php'; ?>
       </div>
 
       <div class="body-lay">
@@ -66,6 +68,8 @@
               </div>
             </div>
             <div class="table-lay">
+              
+            <form method="post" action="../backend/subscribe/subscribe.php">
               <table class="table">
                 <thead>
                   <td>ID</td>
@@ -82,112 +86,30 @@
                   <td></td>
                 </thead>
 
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>
-                      <h4 class="full-note">FULL</h4>
-                    </td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>
-                      <button class="info-btn">INFO</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>
-                      <button class="info-btn">INFO</button>
-                      <button class="sub-btn">SUBSCRIBE</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>
-                      <button class="info-btn">INFO</button>
-                      <button class="sub-btn">SUBSCRIBE</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>
-                      <button class="info-btn">INFO</button>
-                      <button class="sub-btn">SUBSCRIBE</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>
-                      <button class="info-btn">INFO</button>
-                      <button class="sub-btn">SUBSCRIBE</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>
-                      <button class="info-btn">INFO</button>
-                      <button class="sub-btn">SUBSCRIBE</button>
-                    </td>
-                  </tr>
-                </tbody>
+                
+                  <?php foreach ($data as $row): ?> 
+                    <tr>
+                      <td><?php echo $row['id']; ?></td>
+                      <td name='teams'><?php echo $row['teams']; ?></td>
+                      <td name='title'><?php echo $row['title']; ?></td>
+                      <td name='n_teams'><?php echo $row['n_teams']; ?></td>
+                      <td name='participants'><?php echo $row['participants']; ?></td>
+                      <td name='free_teams'><?php echo $row['free_teams']; ?></td>
+                      <td name='comp_startdate'><?php echo $row['comp_startdate']; ?></td>
+                      <td name='comp_enddate'><?php echo $row['comp_enddate']; ?></td>
+                      <td name='transfer_type'><?php echo $row['transfer_type']; ?></td>
+                      <td name='transfer_startdate'><?php echo $row['transfer_startdate']; ?></td>
+                      <td name='transfer_enddate'><?php echo $row['transfer_enddate']; ?></td>
+                      <td style="display: flex; flex-wrap: nowrap;">
+                        <button style="margin-right: 4px;" class='info-btn' name='info'><a style='text-decoration: none; color: white;' href='../backend/subscribe/subscribe.php'>INFO</a></button>
+                        <button class='sub-btn' type="submit" name='subscribe'><a style='text-decoration: none; color: white;' href='../backend/subscribe/subscribe.php'>SUBSCRIBE</a></button>
+                        
+                      </td>
+                    </tr>
+                    <?php endforeach; ?>
+						    
               </table>
+            </form>
             </div>
             <div class="table-footer">
               <h4>Showing 1 to 2 out of 2 entries</h4>

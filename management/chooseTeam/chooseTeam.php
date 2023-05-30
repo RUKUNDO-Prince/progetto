@@ -17,16 +17,7 @@
         <div class="user_dash">
           <h1>TOURNMENT MANAGEMENT</h1>
         </div>
-        <div class="nav">
-          <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li>Welcome D Regis</li>
-            <li>
-              <a href="logout.php"><i class="fas fa-power-off"></i></a>
-            </li>
-          </ul>
-        </div>
+        <?php include_once '../../header/header.php'; ?>
       </div>
       <div class="choose-lay">
         <div>
@@ -41,14 +32,14 @@
           </div>
           <div class="choose-lay-list">
             <ul>
-              <li>Chelsea</li>
-              <li>Manchester United</li>
-              <li>Manchester City</li>
-              <li>Tottenham Hotspurs</li>
-              <li>Liverpool</li>
-              <li>Everton</li>
-              <li>Arsenal</li>
-              <li>Barcelona</li>
+              <li id="chelsea" name='chelsea'>Chelsea</li>
+              <li id="united" name='united'>Manchester United</li>
+              <li id="city" name='city'>Manchester City</li>
+              <li id="tottenham" name='tottenham'>Tottenham Hotspurs</li>
+              <li id="liverpool" name='liverpool'>Liverpool</li>
+              <li id="everton" name='everton'>Everton</li>
+              <li id="arsenal" name='arsenal'>Arsenal</li>
+              <li id="barcelona" name='barcelona'>Barcelona</li>
             </ul>
           </div>
         </div>
@@ -58,5 +49,17 @@
         </div>
       </div>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('li').click(function() {
+          $('li').removeClass('selected');
+          $(this).addClass('selected');
+          var selectedTeam = $(this).text();
+          $('#selected-team').val(selectedTeam);
+        });
+      });
+    </script>
   </body>
 </html>
