@@ -1,0 +1,124 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.body {
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 8%;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    background-color: #535050;
+    color: #fff;
+}
+
+.user_dash {
+    font-size: 8px !important;
+}
+
+.nav>ul {
+    display: flex;
+    gap: 20px;
+    color: #fff;
+}
+
+.nav>ul {
+    color: #fff;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+li>a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.body-lay {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 92%;
+}
+
+
+.body-child {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    flex-direction: column;
+    padding-top: 20px;
+    align-items: center;
+    width: 80%;
+    height: 30%;
+    background-color: #535050;
+    border: none;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 10px !important;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.body-child>h1 {
+    font-size: 20px !important;
+    font-weight: 600 !important;
+    margin-bottom: 10px;
+}
+
+.body-child>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.body-child>div>h3 {
+    padding-bottom: 10px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .body-child {
+        width: 80%;
+        height: 30%;
+    }
+}
+
+
+@media screen and (min-width: 1024px) {
+    .body-lay {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        gap: 50px;
+        align-items: center;
+        width: 100%;
+        height: 92%;
+    }
+
+    .body-child {
+        width: 30%;
+        height: 30%;
+    }
+}

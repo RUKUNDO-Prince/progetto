@@ -1,0 +1,255 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+}
+
+.body {
+    width: 100%;
+    height: 100%;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 8%;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    background-color: #535050;
+    color: #fff;
+}
+
+.user_dash {
+    font-size: 8px;
+}
+
+.nav>ul {
+    display: flex;
+    gap: 20px;
+    color: #fff;
+}
+
+.nav>ul {
+    color: #fff;
+    text-decoration: none;
+    list-style-type: none;
+}
+
+li>a {
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+
+
+.body-lay {
+    background-color: #ccc;
+    height: 92%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5% 20px 5% 5px;
+
+
+}
+
+.body-lay-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: #ebe5e1;
+    width: 100%;
+    border: none;
+    border-radius: 2px;
+    overflow-y: auto;
+}
+
+.body-lay-header {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5%;
+    border-bottom: 1px solid #ccc;
+}
+
+.body-lay-table {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background-color: #fff;
+    padding-top: 20px;
+    margin-top: 3%;
+    padding-bottom: 20px;
+}
+
+.body-lay-header>h4 {
+    font-weight: bolder;
+}
+
+.body-lay-table-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0% 1%;
+}
+
+.selections {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: #535050;
+}
+
+
+select {
+    outline: none;
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+
+.search-input>input {
+    outline: none;
+    padding: 1px 5px;
+    width: 100%;
+}
+
+table {
+    width: 98%;
+}
+
+.table-lay {
+    overflow-y: scroll;
+}
+
+
+@media screen and (max-width:800px) {
+    .table-lay {
+        overflow-x: scroll;
+    }
+}
+
+td {
+    padding: 5px;
+    color: #000;
+    font-weight: bolder;
+    font-size: 12px;
+    height: 40px;
+}
+
+.table, th, td {
+    border: 1px solid #ccd;
+    border-collapse: collapse;
+}
+
+td {
+    padding-left: 5px;
+}
+
+
+.table-lay {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+thead {
+    border-bottom: 2px solid #535050;
+}
+
+tbody {
+    border-bottom: 2px solid #535050;
+}
+
+.full-note {
+    background-color: rgb(61, 151, 61);
+    width: 80%;
+    padding: 5px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bolder;
+    cursor: no-drop;
+}
+
+
+.sub-btn {
+    background-color: rgb(243, 77, 104);
+    border: none;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.info-btn {
+    background-color: rgb(22, 147, 196);
+    border: none;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-btn {
+    background-color: rgb(213, 200, 14);
+    border: none;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.table-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 98%;
+    padding-left: 1%;
+    color: #535050;
+    font-size: 12px;
+}
+
+.pagination-lay {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pagination-lay .btn {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    padding: 5% 10%;
+    align-items: center;
+}
+
+
+.btn-to-open {
+    background-color: rgb(71, 71, 65);
+    border: none;
+    padding: 5px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
