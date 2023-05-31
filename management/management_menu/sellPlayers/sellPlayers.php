@@ -32,17 +32,9 @@
               <h5>Management Menu</h5>
             </div>
 
-            <div class="menu-top-container-two">
-              <ul class="menu-items">
-                <li>YOUR TEAM</li>
-                <li>BUY PLAYERS</li>
-                <li>SELL PLAYERS</li>
-                <li>SWAP PLAYERS</li>
-                <li>TOURNAMENT CALENDER</li>
-                <li>TOURNAMENT RANKING</li>
-                <li>TOURNAMENT RULES INFO</li>
-              </ul>
-            </div>
+            <?php
+              include_once '../../../backend/sidebar/sidebar.php';
+            ?>
           </div>
 
           <div class="menu-bottom">

@@ -112,7 +112,7 @@ if (isset($_POST['myInput'])) {
           <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" style="display: flex; gap: 10%;">
             <button class="save-btn" type="submit" value="" name="save"><a style="text-decoration: none; color: white" href="../management_menu/team/yourTeam.php">Save</a></button>
             <input class="reset-btn" type="reset" value="Cancel" name="cancel" />
-          </form>      
+          </form>
         </div>
       </div>
     </div>
