@@ -43,30 +43,68 @@ if (isset($_POST['myInput'])) {
             <input type="text" id="filterInput" />
           </div>
           <div class="choose-lay-list">
-            <ul id="names">
-              <?php
-                include_once '../../backend/config/config.php';
-                $query = "SELECT COL25 FROM roster_da_peterc10";
-                $result = mysqli_query($conn, $query);
+          <?php
+            include_once '../../backend/config/config.php';
 
-                if ($result && mysqli_num_rows($result) > 0) {
-                  while ($row = mysqli_fetch_assoc($result)) {
-                    echo '<li class="collection-item" onclick="sendValue(\''. $row['COL25'] .'\')"><a href="#">'. $row['COL25'] .'</a></li>';
-                  }
-              } else {
-                  echo "No data found.";
+            $query = "SELECT COL25 FROM roster_da_peterc10";
+            $result = mysqli_query($conn, $query);
+
+            $data = array();
+
+            if ($result && mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                $data[] = $row['COL25'];
               }
-                mysqli_close($conn);
-              ?>
-            </ul>
+            } else {
+              echo "No data found.";
+            }
+
+            // mysqli_close($conn);
+          ?>
+
+          <ul id="names">
+            <?php foreach ($data as $value) { ?>
+              <li class="collection-item" name="name" onclick="sendValue('<?php echo $value; ?>')">
+                <a href="#"><?php echo $value; ?></a>
+              </li>
+            <?php } ?>
+          </ul>
+
+
+            
+            <?php
+              include_once '../../backend/config/config.php';
+              
+              if (isset($_POST['save'])) {
+                  foreach($data as $value){
+                    $names = $value;
+                  }
+
+                  $sql = "INSERT INTO teams (name) VALUES ('$names')";
+
+                  $result = mysqli_query($conn, $sql);
+
+                  if ($result) {
+                      // echo "Data inserted successfully.";
+                  } else {
+                      echo "Error inserting data: " . mysqli_error($conn);
+                  }
+
+                  mysqli_close($conn);
+              }
+            ?>
+
+
             <form id="myForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
               <input type="hidden" id="myInput" name="myInput">
             </form>
           </div>
         </div>
         <div class="choose-lay-btn">
+          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" style="display: flex; gap: 10%;">
             <input class="save-btn" type="submit" value="Save" name="save" />
             <input class="reset-btn" type="reset" value="Cancel" name="cancel" />
+          </form>
         </div>
       </div>
     </div>
