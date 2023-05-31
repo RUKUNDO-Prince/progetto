@@ -96,7 +96,7 @@ if (isset($_POST['myInput'])) {
                   } else {
                     echo "Error inserting data: " . mysqli_error($conn);
                 }
-                mysqli_close($conn);
+                // mysqli_close($conn);
 
                 // header('location: ../management_menu/team/youtTeam.php');
               }
@@ -110,9 +110,9 @@ if (isset($_POST['myInput'])) {
         </div>
         <div class="choose-lay-btn">
           <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" style="display: flex; gap: 10%;">
-            <button class="save-btn" type="submit" value="" name="save"><a style="text-decoration: none; color: white" href="../management_menu/team/yourTeam.html">Save</a></button>
+            <button class="save-btn" type="submit" value="" name="save"><a style="text-decoration: none; color: white" href="../management_menu/team/yourTeam.php">Save</a></button>
             <input class="reset-btn" type="reset" value="Cancel" name="cancel" />
-          </form>
+          </form>      
         </div>
       </div>
     </div>

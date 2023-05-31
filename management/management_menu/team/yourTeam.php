@@ -1,3 +1,27 @@
+<?php
+  // Include your database connection file
+  include_once '../../../backend/config/config.php';
+  
+  // Perform the database query
+  $sql = "SELECT name FROM teams WHERE id = 1";
+  $result = mysqli_query($conn, $sql);
+  
+  if ($result) {
+      // Fetch the row from the result set
+      $row = mysqli_fetch_assoc($result);
+      $name = $row['name'];
+  
+      // Output the name
+      // echo $name;
+  } else {
+      // Error occurred while executing the query
+      echo "Error: " . mysqli_error($conn);
+  }
+  
+  // Close the database connection
+  // mysqli_close($conn);  
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -13,16 +37,7 @@
         <div class="user_dash">
           <h1>TOURNMENT MANAGEMENT</h1>
         </div>
-        <div class="nav">
-          <ul>
-            <li><a href="home.php">Home</a></li>
-            <li><a href="about.php">About</a></li>
-            <li>Welcome D Regis</li>
-            <li>
-              <a href="logout.php"><i class="fas fa-power-off"></i></a>
-            </li>
-          </ul>
-        </div>
+        <?php include_once '../../../header/header.php'; ?>
       </div>
 
       <div class="body-lay">
@@ -71,7 +86,7 @@
         <div class="body-content">
           <div class="body-content-top">
             <div class="body-content-top-header">
-              <h4>Bayer Leverkusen FuBball</h4>
+              <h4><?php echo $name; ?></h4>
               <div>
                 <h4>MONEY: <span>$ 50000.00</span></h4>
               </div>

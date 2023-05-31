@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Team management menu</title>
+    <link rel="stylesheet" href="./sellPlayers.css" />
+  </head>
+  <body>
+    <div class="body">
+      <div class="header">
+        <div class="user_dash">
+          <h1>TOURNMENT MANAGEMENT</h1>
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="home.php">Home</a></li>
+            <li><a href="about.php">About</a></li>
+            <li>Welcome D Regis</li>
+            <li>
+              <a href="logout.php"><i class="fas fa-power-off"></i></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="body-lay">
+        <div class="menu">
+          <div class="menu-top">
+            <div class="menu-top-container">
+              <h5>Management Menu</h5>
+            </div>
+
+            <div class="menu-top-container-two">
+              <ul class="menu-items">
+                <li>YOUR TEAM</li>
+                <li>BUY PLAYERS</li>
+                <li>SELL PLAYERS</li>
+                <li>SWAP PLAYERS</li>
+                <li>TOURNAMENT CALENDER</li>
+                <li>TOURNAMENT RANKING</li>
+                <li>TOURNAMENT RULES INFO</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="menu-bottom">
+            <div class="menu-bottom-container">
+              <h5 class="menu-bottom-container-heading">Categories</h5>
+            </div>
+            <div class="menu-bottom-container-two">
+              <ul class="menu-items">
+                <li>All</li>
+                <li>Attacking Midfielder(AM)</li>
+                <li>Central Defensive(CB)</li>
+                <li>Central Forward(CF)</li>
+                <li>Fluidfying Full-Back(WB)</li>
+                <li>Forward Wing(WF)</li>
+                <li>Full Back(SB)</li>
+                <li>GoalKeeper(GK)</li>
+                <li>Lateral Midfielder(SM)</li>
+                <li>Libero(SW)</li>
+                <li>Median(DM)</li>
+                <li>Midfielder(CM)</li>
+                <li>Secondary Striker(SS)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="body-content">
+          <div class="body-content-top">
+            <div class="body-content-top-header">
+              <h4>Bayer Leverkusen FuBball</h4>
+              <div>
+                <h4>MONEY: <span>$ 50000.00</span></h4>
+              </div>
+
+              <div>
+                <h4>MEMBERSHIP PLAYERS: <span>0 / 32</span></h4>
+              </div>
+            </div>
+            <div class="body-content-top-center">
+              <div class="body-content-lay">
+                <h5>GoalKeeper (GK):</h5>
+                <h5>0 / 2 minimum</h5>
+              </div>
+              <div class="body-content-lay">
+                <h5>Central Defensive (CB) or Libero (SW):</h5>
+                <h5>0 / 4 minimum</h5>
+              </div>
+              <div class="body-content-lay">
+                <h5>Fullbacks (SB):</h5>
+                <h5>0 / 4 minimum</h5>
+              </div>
+              <div class="body-content-lay">
+                <h5>Median (DM):</h5>
+                <h5>0 / 3 minimum</h5>
+              </div>
+              <div class="body-content-lay">
+                <h5>Midfielder (CM):</h5>
+                <h5>0 / 3 minimum</h5>
+              </div>
+              <div class="body-content-lay">
+                <h5>Attacking Midfielder (AM):</h5>
+                <h5>0 / 2 minimum</h5>
+              </div>
+              <div class="body-content-lay">
+                <h5>
+                  Fuildifying full-back (WB) or Lateral Midfielder (SM) or
+                  Foward Wing(WF):
+                </h5>
+                <h5>0 / 4 minimum</h5>
+              </div>
+              <div class="body-content-lay">
+                <h5>Secondary Striker (SS) or Central Forward (CF):</h5>
+                <h5>0 / 4 minimum</h5>
+              </div>
+              <div class="body-content-lay">
+                <h5>Total minimum:</h5>
+                <h5>0 / 26 minimum</h5>
+              </div>
+            </div>
+          </div>
+          <div class="body-content-bottom">
+            <div class="sub-container">
+              <div class="body-container-two">
+                <div class="body-container-two-heading">
+                  <h4>CHOOSE AMONG YOUR PLAYERS WHO TO SELL</h4>
+                </div>
+                <div class="body-container-two-body">
+                  <div class="table">
+                    <div class="body-lay-table-header">
+                      <div class="selections">
+                        <span>Show</span>
+                        <select name="entries" id="entries">
+                          <option value="one">10</option>
+                          <option value="one">1</option>
+                          <option value="two">2</option>
+                          <option value="three">3</option>
+                          <option value="four">4</option>
+                          <option value="five">5</option>
+                          <option value="five">6</option>
+                          <option value="five">7</option>
+                          <option value="five">8</option>
+                          <option value="five">9</option>
+                          <option value="five">10</option>
+                        </select>
+                        <span>entries</span>
+                      </div>
+
+                      <div class="search-input">
+                        <label class="one" for="search">Search: </label>
+                        <input type="text" />
+                      </div>
+                    </div>
+
+                    <div class="body-lay-table-content">
+                      <table>
+                        <thead>
+                          <th>ID</th>
+                          <th>ID_PLAYER</th>
+                          <th>NAME_PLAYER</th>
+                          <th>CATEGORIES</th>
+                          <th>ID_USER</th>
+                          <th>NAME_USER</th>
+                          <th>TEAM_NAME_USER</th>
+                          <th>VALUE</th>
+                          <th></th>
+                          <th></th>
+                        </thead>
+
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>
+                              <button class="info-btn">INFO</button>
+                            </td>
+                            <td>
+                              <input
+                                type="checkbox"
+                                name="sell"
+                                id="sellCheck"
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>
+                              <button class="info-btn">INFO</button>
+                            </td>
+                            <td>
+                              <input
+                                type="checkbox"
+                                name="sell"
+                                id="sellCheck"
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>
+                              <button class="info-btn">INFO</button>
+                            </td>
+                            <td>
+                              <input
+                                type="checkbox"
+                                name="sell"
+                                id="sellCheck"
+                              />
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>1</td>
+                            <td>2</td>
+                            <td>3</td>
+                            <td>4</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>7</td>
+                            <td>8</td>
+                            <td>
+                              <button class="info-btn">INFO</button>
+                            </td>
+                            <td>
+                              <input
+                                type="checkbox"
+                                name="sell"
+                                id="sellCheck"
+                              />
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div class="table-footer">
+                    <div class="pagination-lay">
+                      <span>Previous</span>
+                      <button class="btn">1</button>
+                      <span>Next</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="body-container-three">
+                <h4 class="swap-btn">CONTINUE TO THE EXCHANGE PROPOSAL</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal -->
+
+    <div id="swap-modal" class="modal">
+      <div class="modal-content">
+        <span id="closeModalBtn" class="close">&times;</span>
+        <div class="modal-body">
+          <div class="player-info">
+            <div class="photo">
+              <img src="../../../assets/profile pic.jpg" alt="" />
+            </div>
+            <div class="info-details">
+              <h4>NAME: <span>Diego Maradona</span></h4>
+              <h4>CATEGORY: <span>Attacking Forward (AM)</span></h4>
+              <h4>MARKET VALUE: <span>45678</span></h4>
+              <h4>AWARDED AT AUCTION: <span>34569</span></h4>
+            </div>
+          </div>
+          <div class="transfer-info">
+            <div class="transfer-details">
+              <h4>THE TRANSFER AUCTION WILL CLOSE ON</h4>
+              <input
+                class="transfer-input"
+                value="2023-06-20 00:00"
+                type="text"
+                disabled
+              />
+            </div>
+            <div class="transfer-details">
+              <h4>SET THE AUCTION BEATING CYCLE</h4>
+              <div class="transfer-details-check">
+                <select name="auctionCycle" id="">
+                  <option value="three">Three Days</option>
+                  <option value="one">One Day</option>
+                  <option value="two">Two Days</option>
+                  <option value="four">Four Days</option>
+                  <option value="five">Five Days</option>
+                </select>
+
+                <div class="repost">
+                  <h4>REPOST</h4>
+                  <input
+                    class="transfer-check"
+                    type="checkbox"
+                    name="repost"
+                    id=""
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="transfer-details">
+              <h4>% DISCOUNT MANDATORY BY ADMIN</h4>
+              <input class="transfer-input" value="NONE" type="text" disabled />
+            </div>
+            <div class="transfer-details-footer">
+              <div class="transfer-details-bottom">
+                <h4>SET AUCTION STARTING PRICE</h4>
+                <input class="transfer-details-bottom-input" value="5000" type="text" disabled />
+                <div class="transfer-details-btns">
+                  <button class="submit-btn">Submit</button>
+                  <button class="cancel-btn">Cancel</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("swap-modal");
+      const closeModalBtn = document.getElementsByClassName("close")[0];
+      const swapBtn = document.getElementsByClassName("swap-btn");
+
+      for (let i = 0; i < swapBtn.length; i++) {
+        swapBtn[i].addEventListener("click", function () {
+          modal.style.display = "block";
+        });
+      }
+
+      closeModalBtn.addEventListener("click", function () {
+        modal.style.display = "none";
+      });
+
+      window.addEventListener("click", function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      });
+    </script>
+  </body>
+</html>
