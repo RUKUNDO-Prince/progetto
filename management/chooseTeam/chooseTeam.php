@@ -1,3 +1,10 @@
+<?php
+if (isset($_POST['myInput'])) {
+  $selected = $_POST['myInput'];
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,6 +18,11 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
   </head>
+  <style>
+    .choose-lay-list li a{
+      color: black;
+    }
+  </style>
   <body>
     <div class="body">
       <div class="header">
@@ -25,22 +37,31 @@
         </div>
         <div class="choose-lay-form">
           <div class="choose-lay-header">
-            <h4>Bayern Leverkusen</h4>
+            <h4><?php echo !empty($selected) ? $selected : 'Please select team'; ?></h4>
           </div>
           <div class="choose-lay-input">
-            <input type="text" />
+            <input type="text" id="filterInput" />
           </div>
           <div class="choose-lay-list">
-            <ul>
-              <li id="chelsea" name='chelsea'>Chelsea</li>
-              <li id="united" name='united'>Manchester United</li>
-              <li id="city" name='city'>Manchester City</li>
-              <li id="tottenham" name='tottenham'>Tottenham Hotspurs</li>
-              <li id="liverpool" name='liverpool'>Liverpool</li>
-              <li id="everton" name='everton'>Everton</li>
-              <li id="arsenal" name='arsenal'>Arsenal</li>
-              <li id="barcelona" name='barcelona'>Barcelona</li>
+            <ul id="names">
+              <?php
+                include_once '../../backend/config/config.php';
+                $query = "SELECT COL25 FROM roster_da_peterc10";
+                $result = mysqli_query($conn, $query);
+
+                if ($result && mysqli_num_rows($result) > 0) {
+                  while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<li class="collection-item" onclick="sendValue(\''. $row['COL25'] .'\')"><a href="#">'. $row['COL25'] .'</a></li>';
+                  }
+              } else {
+                  echo "No data found.";
+              }
+                mysqli_close($conn);
+              ?>
             </ul>
+            <form id="myForm" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST">
+              <input type="hidden" id="myInput" name="myInput">
+            </form>
           </div>
         </div>
         <div class="choose-lay-btn">
@@ -60,6 +81,30 @@
           $('#selected-team').val(selectedTeam);
         });
       });
+    </script>
+    <script>
+        const filterInput = document.querySelector('#filterInput');
+        filterInput.addEventListener('keyup', filterNames);
+
+        function filterNames(){
+            const filterValue = document.querySelector('#filterInput').value.toUpperCase();
+            const ul = document.querySelector('#names');
+            const li = ul.querySelectorAll('li.collection-item');
+            for( let i = 0; i < li.length; i++ ){
+                const a = li[i].getElementsByTagName('a')[0];
+                if(a.innerHTML.toUpperCase().indexOf(filterValue) > -1){
+                    li[i].style.display = '';
+                }else{
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+    <script>
+      function sendValue(value) {
+        document.getElementById('myInput').value = value;
+        document.getElementById('myForm').submit();
+      }
     </script>
   </body>
 </html>
