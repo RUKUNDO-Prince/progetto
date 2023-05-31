@@ -1,5 +1,5 @@
 <?php
-if (isset($_POST['submit'])) {
+if (isset($_POST['subscribe'])) {
     include_once '../config/config.php';
 
     $teams = $_POST['teams'];
@@ -12,8 +12,7 @@ if (isset($_POST['submit'])) {
     $transfer_startdate = $_POST['transfer_startdate'];
     $transfer_enddate = $_POST['transfer_enddate'];
 
-    // Prepare the SQL statement to insert the data into the database table
-    $sql = "INSERT INTO my_tournaments (teams, title, n_teams, comp_startdate, comp_enddate, transfer_type, transfer_startdate, transfer_enddate) VALUES ('$teams', '$title', '$n_teams', '$comp_startdate', '$comp_enddate', '$transfer_type', '$transfer_startdate', '$transfer_enddate')";
+    $sql = "INSERT INTO my_tournaments(teams, title, n_teams, comp_startdate, comp_enddate, transfer_type, transfer_startdate, transfer_enddate) VALUES ('$teams', '$title', '$n_teams', '$comp_startdate', '$comp_enddate', '$transfer_type', '$transfer_startdate', '$transfer_enddate')";
 
     // Execute the SQL query
     if ($conn->query($sql) === true) {
@@ -23,7 +22,6 @@ if (isset($_POST['submit'])) {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
-    // Close the connection to the database
     $conn->close();
 } else {
     echo "No data submitted.";

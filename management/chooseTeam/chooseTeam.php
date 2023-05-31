@@ -76,21 +76,29 @@ if (isset($_POST['myInput'])) {
               include_once '../../backend/config/config.php';
               
               if (isset($_POST['save'])) {
-                  foreach($data as $value){
-                    $names = $value;
+
+                $query = "SELECT COL25 FROM roster_da_peterc10";
+                $query_result = mysqli_query($conn, $query);
+                if ($query_result && mysqli_num_rows($query_result) > 0) {
+                  while ($row = mysqli_fetch_assoc($query_result)) {
+                    $data[] = $row['COL25'];
                   }
-
-                  $sql = "INSERT INTO teams (name) VALUES ('$names')";
-
-                  $result = mysqli_query($conn, $sql);
-
-                  if ($result) {
-                      // echo "Data inserted successfully.";
+                } else {
+                  echo "No data found.";
+                }
+                foreach($data as $value){
+                  $names = $value;
+                }
+                $sql = "INSERT INTO teams (name) VALUES ('$names')";
+                $result = mysqli_query($conn, $sql);
+                if ($result) {
+                    // echo "Data inserted successfully.";
                   } else {
-                      echo "Error inserting data: " . mysqli_error($conn);
-                  }
+                    echo "Error inserting data: " . mysqli_error($conn);
+                }
+                mysqli_close($conn);
 
-                  mysqli_close($conn);
+                // header('location: ../management_menu/team/youtTeam.php');
               }
             ?>
 
@@ -102,7 +110,7 @@ if (isset($_POST['myInput'])) {
         </div>
         <div class="choose-lay-btn">
           <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" style="display: flex; gap: 10%;">
-            <input class="save-btn" type="submit" value="Save" name="save" />
+            <button class="save-btn" type="submit" value="" name="save"><a style="text-decoration: none; color: white" href="../management_menu/team/yourTeam.html">Save</a></button>
             <input class="reset-btn" type="reset" value="Cancel" name="cancel" />
           </form>
         </div>
